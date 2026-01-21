@@ -395,18 +395,18 @@ const PdfEditor = () => {
       });
 
       // Código de barras
-      yPos -= 20;
-      const codigoBarrasScale = 0.4;
+      yPos -= 31;
+      const codigoBarrasScale = 0.35;
       const codigoBarrasDims = codigoBarras.scale(codigoBarrasScale);
       page.drawImage(codigoBarras, {
         x: 60,
-        y: yPos - codigoBarrasDims.height,
+        y: yPos,
         width: codigoBarrasDims.width,
         height: codigoBarrasDims.height,
       });
       
       // Valor
-      yPos -= codigoBarrasDims.height + 10;
+      yPos -= 20;
       page.drawText(`Valor a Receber: ${formData.valorReceber}`, {
         x: 60,
         y: yPos,
@@ -515,7 +515,7 @@ const PdfEditor = () => {
       const assDims = assinatura.scale(assScale);
       page.drawImage(assinatura, {
         x: (width - assDims.width) / 2,
-        y: 40,
+        y: 60,
         width: assDims.width,
         height: assDims.height,
       });
@@ -528,7 +528,7 @@ const PdfEditor = () => {
       
       page.drawText(textoPoder, {
         x: (width - larguraPoder) / 2,
-        y: 40 + assDims.height + 15,
+        y: 60 + assDims.height + 15,
         size: 10,
         font: fontBold,
         color: rgb(0, 0, 0),
@@ -536,7 +536,7 @@ const PdfEditor = () => {
       
       page.drawText(textoTribunal, {
         x: (width - larguraTribunal) / 2,
-        y: 40 + assDims.height,
+        y: 60 + assDims.height,
         size: 9,
         font: font,
         color: rgb(0, 0, 0),
